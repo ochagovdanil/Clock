@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_above="@id/linear_layout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image_alarm"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_alarm"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+            <TextView
+                android:id="@+id/text_alarm"
+                android:textColor="@color/colorAccent"
+                android:textSize="50sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="@string/text_alarm_default_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/partial_line" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout_buttons"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_start_alarm"
+            android:textColor="@color/colorAccent"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:padding="22dp"
+            android:text="@string/button_start"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/button_stop_alarm"
+            android:textColor="@color/colorRed"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:padding="22dp"
+            android:text="@string/button_stop"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>

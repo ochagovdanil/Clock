@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="PreloaderTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/preloader_background</item>
+    </style>
+
+    <style name="MyToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="actionOverflowButtonStyle">@style/ColorMenuBar</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_regular</item>
+    </style>
+
+    <style name="ColorMenuBar" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/colorBlack</item>
+    </style>
+
+    <style name="MyPopupTheme" parent="Base.Widget.AppCompat.PopupMenu">
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="MyToolbarTitleTextAppearance" parent="Base.TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+</resources>

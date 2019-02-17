@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- add white status bar and black icons -->
+
+    <style name="MyToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="actionOverflowButtonStyle">@style/ColorMenuBar</item>
+        <item name="android:fontFamily">@font/open_sans_regular</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+</resources>

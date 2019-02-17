@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_above="@id/linear_layout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/progress_bar_timer"
+            android:progress="100"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_centerInParent="true"
+            android:progressDrawable="@drawable/circle_progress_bar"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+        <TextView
+            android:id="@+id/text_timer"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/text_timer_default_time"
+            android:layout_width="300dp"
+            android:layout_height="300dp" />
+    </RelativeLayout>
+
+    <include layout="@layout/partial_line" />
+
+    <LinearLayout
+        android:id="@+id/linear_layout_buttons"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button_start_timer"
+            android:text="@string/button_start"
+            android:background="@null"
+            android:padding="22dp"
+            android:visibility="visible"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/button_stop_resume_timer"
+            android:text="@string/button_stop"
+            android:layout_weight="1"
+            android:background="@null"
+            android:padding="22dp"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/button_reset_timer"
+            android:text="@string/button_reset"
+            android:background="@null"
+            android:padding="22dp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</RelativeLayout>
