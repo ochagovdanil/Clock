@@ -7,7 +7,6 @@ _Here is it_
   <img src="screenshots/screenshot_3.png" width="350px" />
   <img src="screenshots/screenshot_4.png" width="350px" />
   <img src="screenshots/screenshot_5.png" width="350px" />
-  <img src="screenshots/screenshot_6.png" width="350px" />
 </div> <br />
 
 _Clock - time app for Android on Java. This app contains alarm, timer and stopwatch._
