@@ -13,7 +13,7 @@
     <string name="text_alarm_default_time">07:00</string>
     <string name="menu_about">About Clock</string>
     <string name="about_clock">About Clock</string>
-    <string name="version_app">Version 1.0</string>
+    <string name="version_app">Version 1.1</string>
     <string name="open_github">Open in Github</string>
 
 </resources>
