@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.example.clock.ChannelIdApp;
@@ -232,21 +233,25 @@ public class TimerFragment extends Fragment {
                 (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent notificationIntent = new Intent(getContext(), MainActivity.class);
+        notificationIntent.putExtra("timer_cancel_notification", true);
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(
                 getContext(),
                 2,
                 notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
+        RemoteViews remoteViews = new RemoteViews(
+                getContext().getPackageName(),
+                R.layout.partial_cancel_notification);
+        remoteViews.setImageViewResource(R.id.image_cancel_button, R.drawable.ic_cancel);
+        remoteViews.setOnClickPendingIntent(R.id.image_cancel_button, notificationPendingIntent);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 getContext(),
                 ChannelIdApp.CHANNEL_ID);
         builder.setAutoCancel(true)
-                .setUsesChronometer(true)
-                .setContentTitle("Clock")
-                .setContentText("Timer was expired!")
+                .setCustomContentView(remoteViews)
                 .setTicker("Timer")
-                .setContentIntent(notificationPendingIntent)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setSmallIcon(R.drawable.ic_stat_notify_clock);
 
@@ -254,7 +259,7 @@ public class TimerFragment extends Fragment {
         notification.flags = notification.flags | Notification.FLAG_INSISTENT;
 
         if (notificationManager != null) {
-            notificationManager.notify(TIMER_EXPIRED_NOTIFICATION_ID,  notification);
+            notificationManager.notify(TIMER_EXPIRED_NOTIFICATION_ID, notification);
         }
     }
 

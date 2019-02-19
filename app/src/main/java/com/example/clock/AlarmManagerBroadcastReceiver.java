@@ -8,9 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.RingtoneManager;
-import android.os.Build;
-import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
+import android.widget.RemoteViews;
 
 import com.example.clock.activities.MainActivity;
 import com.example.clock.helpers.ScreenWakeup;
@@ -32,21 +31,25 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent notificationIntent = new Intent(context, MainActivity.class);
+        notificationIntent.putExtra("alarm_cancel_notification", true);
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(
                 context,
                 1,
                 notificationIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
+        RemoteViews remoteViews = new RemoteViews(
+                context.getPackageName(),
+                R.layout.partial_cancel_notification);
+        remoteViews.setImageViewResource(R.id.image_cancel_button, R.drawable.ic_cancel);
+        remoteViews.setOnClickPendingIntent(R.id.image_cancel_button, notificationPendingIntent);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context,
                 ChannelIdApp.CHANNEL_ID);
         builder.setAutoCancel(true)
-                .setUsesChronometer(true)
-                .setContentTitle("Clock")
-                .setContentText("Alarm was expired!")
                 .setTicker("Alarm")
-                .setContentIntent(notificationPendingIntent)
+                .setCustomContentView(remoteViews)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM))
                 .setSmallIcon(R.drawable.ic_stat_notify_clock);
 

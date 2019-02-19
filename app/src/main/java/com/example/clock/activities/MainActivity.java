@@ -1,5 +1,7 @@
 package com.example.clock.activities;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -28,6 +30,25 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         initTabs();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (getIntent().getBooleanExtra("timer_cancel_notification", false)) {
+            if (notificationManager != null) {
+                notificationManager.cancel(2);
+            }
+        }
+        if (getIntent().getBooleanExtra("alarm_cancel_notification", false)) {
+            if (notificationManager != null) {
+                notificationManager.cancel(1);
+            }
+        }
     }
 
     @Override
