@@ -2,11 +2,11 @@
 _Here is it_
 
 <div align="center">
-  <img src="screenshots/screenshot_1.png" width="350px" />
-  <img src="screenshots/screenshot_2.png" width="350px" />
-  <img src="screenshots/screenshot_3.png" width="350px" />
-  <img src="screenshots/screenshot_4.png" width="350px" />
-  <img src="screenshots/screenshot_5.png" width="350px" />
+  <img src="screenshots/screenshot-1.png" width="350px" />
+  <img src="screenshots/screenshot-2.png" width="350px" />
+  <img src="screenshots/screenshot-3.png" width="350px" />
+  <img src="screenshots/screenshot-4.png" width="350px" />
+  <img src="screenshots/screenshot-5.png" width="350px" />
 </div> <br />
 
 _Clock - time app for Android on Java. This app contains alarm, timer and stopwatch._
