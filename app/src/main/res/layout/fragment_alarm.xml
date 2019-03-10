@@ -14,17 +14,10 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/image_alarm"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_alarm"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
             <TextView
                 android:id="@+id/text_alarm"
                 android:textColor="@color/colorAccent"
                 android:textSize="50sp"
-                android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:text="@string/text_alarm_default_time"
                 android:layout_width="wrap_content"
