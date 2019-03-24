@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -35,7 +36,9 @@ public class AlarmFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_alarm, container, false);
     }
 
@@ -132,7 +135,15 @@ public class AlarmFragment extends Fragment {
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-        mAlarmManager.set(AlarmManager.RTC_WAKEUP, mCalendar.getTimeInMillis(), pendingIntent);
+        if (Build.VERSION.SDK_INT >= 23) {
+            AlarmManager.AlarmClockInfo alarmClockInfo =
+                    new AlarmManager.AlarmClockInfo(mCalendar.getTimeInMillis(), pendingIntent);
+            mAlarmManager.setAlarmClock(alarmClockInfo, pendingIntent);
+        } else if (Build.VERSION.SDK_INT >= 19) {
+            mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, mCalendar.getTimeInMillis(), pendingIntent);
+        } else {
+            mAlarmManager.set(AlarmManager.RTC_WAKEUP, mCalendar.getTimeInMillis(), pendingIntent);
+        }
 
         // create a notification about a running alarm
         Intent intentNotification = new Intent(getContext(), AlarmNotificationService.class);
