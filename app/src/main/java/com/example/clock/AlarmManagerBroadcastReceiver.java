@@ -40,9 +40,8 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
 
         RemoteViews remoteViews = new RemoteViews(
                 context.getPackageName(),
-                R.layout.partial_cancel_notification);
-        remoteViews.setImageViewResource(R.id.image_cancel_button, R.drawable.ic_cancel);
-        remoteViews.setOnClickPendingIntent(R.id.image_cancel_button, notificationPendingIntent);
+                R.layout.partial_alarm_notification);
+        remoteViews.setOnClickPendingIntent(R.id.cancel_button_alarm, notificationPendingIntent);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context,
