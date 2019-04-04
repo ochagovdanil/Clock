@@ -10,7 +10,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 
-import com.example.clock.activities.LauncherActivity;
+import com.example.clock.activities.MainActivity;
 
 public class AlarmNotificationService extends Service {
 
@@ -41,7 +41,8 @@ public class AlarmNotificationService extends Service {
             }
         }
 
-        Intent notificationIntent = new Intent(this, LauncherActivity.class);
+        Intent notificationIntent = new Intent(this, MainActivity.class);
+        notificationIntent.putExtra("alarm_notification_tab", true); // go to the alarm tab
         PendingIntent notificationPendingIntent = PendingIntent.getActivity(
                 this,
                 3,

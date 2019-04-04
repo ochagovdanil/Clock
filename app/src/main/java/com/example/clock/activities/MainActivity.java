@@ -8,8 +8,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.clock.R;
 import com.example.clock.adapters.TabFragmentPagerAdapter;
@@ -19,6 +17,8 @@ import com.example.clock.fragments.TimerFragment;
 import com.example.clock.models.Tab;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,43 +33,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
 
+        // cancel notifications
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (getIntent().getBooleanExtra("timer_cancel_notification", false)) {
+        if (intent.getBooleanExtra("timer_cancel_notification", false)) {
             if (notificationManager != null) {
                 notificationManager.cancel(2);
+                viewPager.setCurrentItem(2); // go to the timer tab
+
             }
         }
-        if (getIntent().getBooleanExtra("alarm_cancel_notification", false)) {
+        if (intent.getBooleanExtra("alarm_cancel_notification", false)) {
             if (notificationManager != null) {
                 notificationManager.cancel(1);
+                viewPager.setCurrentItem(0); // go to the alarm tab
             }
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_main_about) {
-            startActivity(new Intent(MainActivity.this, AboutActivity.class));
-            return true;
+        if (intent.getBooleanExtra("alarm_notification_tab", false)) {
+            viewPager.setCurrentItem(0); // go to the alarm tab
         }
-
-        return false;
     }
 
     private void initTabs() {
         TabLayout tabLayout = findViewById(R.id.tab_layout_my);
-        ViewPager viewPager = findViewById(R.id.view_pager_my);
+        viewPager = findViewById(R.id.view_pager_my);
         TabFragmentPagerAdapter adapter = new TabFragmentPagerAdapter(getSupportFragmentManager());
 
         adapter.addNewTab(new Tab("Alarm", new AlarmFragment()));

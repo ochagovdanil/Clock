@@ -242,9 +242,8 @@ public class TimerFragment extends Fragment {
 
         RemoteViews remoteViews = new RemoteViews(
                 getContext().getPackageName(),
-                R.layout.partial_cancel_notification);
-        remoteViews.setImageViewResource(R.id.image_cancel_button, R.drawable.ic_cancel);
-        remoteViews.setOnClickPendingIntent(R.id.image_cancel_button, notificationPendingIntent);
+                R.layout.partial_timer_notification);
+        remoteViews.setOnClickPendingIntent(R.id.cancel_button_timer, notificationPendingIntent);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 getContext(),
