@@ -6,9 +6,8 @@
     android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/cancel_button_timer"
+        android:id="@+id/cancel_button_notification"
         android:background="@drawable/circle_shape"
-        android:text="@string/timer_notification"
         android:textColor="@color/colorWhite"
         android:layout_centerInParent="true"
         android:padding="15dp"
