@@ -14,7 +14,7 @@ _Clock - time app for Android on Java. This app contains alarm, timer and stopwa
  * Name - Clock
  * Android 4.0(API 14) or higher
  * Version of the app - 1.1
- * Size - 2.75 MB
+ * Size - 2.36 MB
  * Developer - Danil Ochagov [(ochagovdanil)](https://github.com/ochagovdanil)
 
 # Getting Started
