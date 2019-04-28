@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         initTabs();
+
+        onNewIntent(getIntent()); // if the activity was destroyed
     }
 
     @Override
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             if (notificationManager != null) {
                 notificationManager.cancel(2);
                 viewPager.setCurrentItem(2); // go to the timer tab
-
+                
             }
         }
         if (intent.getBooleanExtra("alarm_cancel_notification", false)) {
