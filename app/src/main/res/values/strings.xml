@@ -13,5 +13,8 @@
     <string name="text_alarm_default_time">07:00</string>
     <string name="alarm_notification">Alarm stop</string>
     <string name="timer_notification">Timer stop</string>
+    <string name="alarm_shortcut_short_msg">Alarm</string>
+    <string name="stopwatch_shortcut_short_msg">Stopwatch</string>
+    <string name="timer_shortcut_short_msg">Timer</string>
 
 </resources>

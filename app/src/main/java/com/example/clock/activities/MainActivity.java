@@ -58,6 +58,22 @@ public class MainActivity extends AppCompatActivity {
         if (intent.getBooleanExtra("alarm_notification_tab", false)) {
             viewPager.setCurrentItem(0); // go to the alarm tab
         }
+
+        // shortcut actions
+        if (intent.getStringExtra("shortcut_action") != null) {
+            switch (intent.getStringExtra("shortcut_action")) {
+                case "alarm":
+                    viewPager.setCurrentItem(0);
+                    break;
+
+                case "stopwatch":
+                    viewPager.setCurrentItem(1);
+                    break;
+
+                case "timer":
+                    viewPager.setCurrentItem(2);
+            }
+        }
     }
 
     private void initTabs() {
