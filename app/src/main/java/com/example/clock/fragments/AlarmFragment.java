@@ -135,14 +135,21 @@ public class AlarmFragment extends Fragment {
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            AlarmManager.AlarmClockInfo alarmClockInfo =
-                    new AlarmManager.AlarmClockInfo(mCalendar.getTimeInMillis(), pendingIntent);
-            mAlarmManager.setAlarmClock(alarmClockInfo, pendingIntent);
-        } else if (Build.VERSION.SDK_INT >= 19) {
-            mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, mCalendar.getTimeInMillis(), pendingIntent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mAlarmManager.setExactAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP,
+                    mCalendar.getTimeInMillis(),
+                    pendingIntent);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mAlarmManager.setExact(
+                    AlarmManager.RTC_WAKEUP,
+                    mCalendar.getTimeInMillis(), 
+                    pendingIntent);
         } else {
-            mAlarmManager.set(AlarmManager.RTC_WAKEUP, mCalendar.getTimeInMillis(), pendingIntent);
+            mAlarmManager.set(
+                    AlarmManager.RTC_WAKEUP,
+                    mCalendar.getTimeInMillis(),
+                    pendingIntent);
         }
 
         // create a notification about a running alarm

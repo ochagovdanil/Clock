@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <shortcut
+        android:shortcutId="alarm"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_alarm"
+        android:shortcutShortLabel="@string/alarm_shortcut_short_msg"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.clock"
+            android:targetClass="com.example.clock.activities.MainActivity">
+            <extra
+                android:name="shortcut_action"
+                android:value="alarm" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="stopwatch"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_stopwatch"
+        android:shortcutShortLabel="@string/stopwatch_shortcut_short_msg"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.clock"
+            android:targetClass="com.example.clock.activities.MainActivity">
+            <extra
+                android:name="shortcut_action"
+                android:value="stopwatch" />
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="timer"
+        android:enabled="true"
+        android:icon="@drawable/ic_shortcut_timer"
+        android:shortcutShortLabel="@string/timer_shortcut_short_msg"
+        tools:ignore="UnusedAttribute">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.clock"
+            android:targetClass="com.example.clock.activities.MainActivity">
+            <extra
+                android:name="shortcut_action"
+                android:value="timer" />
+        </intent>
+    </shortcut>
+
+</shortcuts>
