@@ -57,7 +57,7 @@ public class AlarmNotificationService extends Service {
                 .setContentTitle("Alarm was set [" + intent.getStringExtra("alarm_time") + "]")
                 .setTicker("Alarm")
                 .setContentIntent(notificationPendingIntent)
-                .setSmallIcon(R.drawable.ic_stat_notify_clock);
+                .setSmallIcon(R.drawable.ic_stat_notify_alarm);
 
         startForeground(ALARM_RUNNING_NOTIFICATION_ID, builder.build());
 
