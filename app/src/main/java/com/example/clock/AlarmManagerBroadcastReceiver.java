@@ -55,7 +55,7 @@ public class AlarmManagerBroadcastReceiver extends BroadcastReceiver {
                 .setTicker("Alarm")
                 .setCustomContentView(remoteViews)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM))
-                .setSmallIcon(R.drawable.ic_stat_notify_clock);
+                .setSmallIcon(R.drawable.ic_stat_notify_alarm);
 
         Notification notification = builder.build();
         notification.flags = notification.flags | Notification.FLAG_INSISTENT;

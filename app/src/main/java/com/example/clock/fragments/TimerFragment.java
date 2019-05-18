@@ -257,7 +257,7 @@ public class TimerFragment extends Fragment {
                 .setCustomContentView(remoteViews)
                 .setTicker("Timer")
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setSmallIcon(R.drawable.ic_stat_notify_clock);
+                .setSmallIcon(R.drawable.ic_stat_notify_timer);
 
         Notification notification = builder.build();
         notification.flags = notification.flags | Notification.FLAG_INSISTENT;
