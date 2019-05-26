@@ -9,7 +9,7 @@ _Here is it_
   <img src="screenshots/screenshot-5.png" width="350px" />
 </div> <br />
 
-_Clock - time app for Android on Java. This app contains alarm, timer and stopwatch._
+_Clock - a time app for Android on Java. This app contains alarm, timer and stopwatch._
 
  * Name - Clock
  * Android 4.0(API 14) or higher
