@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- add white status bar and black icons -->
+    <!-- This file is used for black navigation bar and white status bar -->
 
     <style name="MyToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/colorAccent</item>
